@@ -18,7 +18,7 @@ curl --include --request POST http://localhost:3000/games \
   --data '{
     "tunes": {
       "name": "Dusky Night",
-      "ABCnotation": "`T: Dusky Night
+      "ABCnotation_body": "`T: Dusky Night
       S: Thompson 1777
       N: From Apted Book of Country Dances
       N: abc version by Robert Bley-Vroman vroman@hawaii.edu 14 October 1996

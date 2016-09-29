@@ -5,7 +5,7 @@ RSpec.describe 'Tune API' do
   def tune_params
     {
       name: 'Dusky Night',
-      ABCnotation:
+      ABCnotation_body:
 `T: Dusky Night
 S: Thompson 1777
 N: From Apted Book of Country Dances
