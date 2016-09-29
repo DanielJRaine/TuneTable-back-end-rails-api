@@ -1,6 +1,6 @@
 require 'rails_helper'
-# We will parse an ABC file on the backend.
-# Don't worry about supplying all the parameters on the Front-end.
+# We will parse an ABC file on the backend to find key, meter, etc.
+# Don't worry about supplying all details on the Front-end.
 RSpec.describe 'Tune API' do
   def tune_params
     {
@@ -27,5 +27,20 @@ K:D
     }
   end
 
-  describe 'POST /'
+  describe 'POST /tunes' do
+    it 'creates a new tune and stores it in the database' do
+      post '/tunes', tune_data: tune_params
+
+      expect(response).to be_success
+
+      parsed_response = JSON.parse(response.body)
+      expect(
+        parsed_response['tune']['name']
+      ).to eq(tune_params[:name])
+    end
+  end
+
+  before(:each) do
+    post '/tunes', tune_data: tune_params
+  end
 end
