@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    abcjs-rails (2.3)
+      railties
     actionmailer (4.2.7.1)
       actionpack (= 4.2.7.1)
       actionview (= 4.2.7.1)
@@ -161,6 +163,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  abcjs-rails
   active_model_serializers (~> 0.10.0)
   bcrypt (~> 3.1.11)
   byebug (~> 8.2.2)

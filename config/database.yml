@@ -1,4 +1,4 @@
-<% project_name = 'modal-transpose-rails-api' %>
+<% project_name = 'tune-table-rails-api' %>
 
 default: &default
   adapter: postgresql
