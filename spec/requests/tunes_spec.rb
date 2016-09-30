@@ -73,6 +73,25 @@ RSpec.describe 'Tune API' do
     end
   end
 
+  describe 'PATCH /tunes/:id' do
+    def update_tune_params
+      {
+        name: 'old_time_tune',
+        ABCnotation: 'new_time_tune'
+      }
+    end
+
+    it 'updates a specific tune' do
+      patch "/tunes/#{@tune_id}",
+      {
+        update_tune_data: update_tune_params
+      }
+
+      expect(response).to be_success
+      expect(response.body).to be_empty
+    end
+  end
+
   before(:each) do
     post '/tunes', tune_data: tune_params
 

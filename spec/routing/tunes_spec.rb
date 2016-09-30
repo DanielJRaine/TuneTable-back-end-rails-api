@@ -16,4 +16,12 @@ RSpec.describe 'routes for tunes' do
       id: '1'
     )
   end
+
+  it 'routes PATCH /tunes/:id to the tunes#update action' do
+    expect(patch('/tunes/1')).to route_to(
+      controller: 'tunes',
+      action: 'update',
+      id: '1'
+    )
+  end
 end

@@ -30,6 +30,7 @@ class TunesController < ApplicationController
   # PATCH/PUT /tunes/1
   # PATCH/PUT /tunes/1.json
   def update
+    @tune_id = JSON.parse(response.body)
     @tune = Tune.find(params[:id])
 
     if @tune.update(tune_params)

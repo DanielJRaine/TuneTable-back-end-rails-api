@@ -52,4 +52,28 @@ RSpec.describe TunesController do
       expect(parsed_response).not_to be_nil
     end
   end
+
+  describe 'PATCH update' do
+    def tune_params
+      {
+        name: 'old time tune',
+        ABCnotation: 'new time tune'
+      }
+    end
+
+    before(:each) do
+      patch :update, {
+        id: @tune_id,
+        tune_data: tune_params
+      }, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_successful
+    end
+
+    it 'renders no response body' do
+      expect(response.body).to be_empty
+    end
+  end
 end
