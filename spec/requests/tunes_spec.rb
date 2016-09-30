@@ -34,7 +34,7 @@ RSpec.describe 'Tune API' do
 
   describe 'GET /tunes' do
     it 'is successful' do
-      get '/tunes', nil, headers
+      get '/tunes'
 
       expect(response).to be_success
 
