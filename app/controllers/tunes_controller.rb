@@ -49,11 +49,11 @@ class TunesController < ApplicationController
 
   private
 
-    def set_tune
-      @tune = Tune.find(params[:id])
-    end
+  def set_tune
+    @tune = Tune.find(params[:id])
+  end
 
-    def tune_params
-      params.require(:tune).permit(:name, :ABCnotation)
-    end
+  def tune_params
+    params.require(:tune_data).permit(:name, :ABCnotation)
+  end
 end

@@ -1,4 +1,11 @@
-### Authentication
+### Tunes
+
+# tonic_note: 'Bb',
+# base_key_quality: 'minor',
+# mode_name: 'Phrygian',
+# mode_scale_degree_from_base: '5',
+# time_signature: '6/8',
+# meter_name: 'jig',
 
 | Verb   | URI Pattern            | Controller#Action |
 |--------|------------------------|-------------------|
@@ -18,7 +25,7 @@ curl --include --request POST http://localhost:3000/games \
   --data '{
     "tunes": {
       "name": "Dusky Night",
-      "ABCnotation_body": "`T: Dusky Night
+      "ABCnotation": "`T: Dusky Night
       S: Thompson 1777
       N: From Apted Book of Country Dances
       N: abc version by Robert Bley-Vroman vroman@hawaii.edu 14 October 1996
