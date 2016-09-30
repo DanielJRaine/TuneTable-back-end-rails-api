@@ -32,6 +32,19 @@ RSpec.describe 'Tune API' do
     post '/tunes', tune_data: tune_params
   end
 
+  describe 'GET /tunes' do
+    it 'is successful' do
+      get '/tunes', nil, headers
+
+      expect(response).to be_success
+
+      parsed_response = JSON.parse(response.body)
+      expect(
+        parsed_response['tunes']
+      ).not_to be_empty
+    end
+  end
+
   describe 'POST /tunes' do
     it 'creates a new tune' do
       post '/tunes', tune_data: tune_params
