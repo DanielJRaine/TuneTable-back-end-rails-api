@@ -25,7 +25,31 @@ RSpec.describe TunesController do
 
   describe 'GET index' do
     before(:each) do
-      get :index, format: :json
+      get :index, id: @tune_id, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_successful
+    end
+
+    it 'renders a JSON response' do
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response).not_to be_nil
+    end
+  end
+
+  describe 'GET show' do
+    before(:each) do
+      get :index, id: @user_id, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_successful
+    end
+
+    it 'renders a JSON response' do
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response).not_to be_nil
     end
   end
 end
