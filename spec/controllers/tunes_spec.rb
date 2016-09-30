@@ -22,4 +22,10 @@ RSpec.describe TunesController do
       expect(parsed_response).not_to be_nil
     end
   end
+
+  describe 'GET index' do
+    before(:each) do
+      get :index, format: :json
+    end
+  end
 end
