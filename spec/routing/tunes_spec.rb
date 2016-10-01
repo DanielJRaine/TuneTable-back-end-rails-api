@@ -24,4 +24,12 @@ RSpec.describe 'routes for tunes' do
       id: '1'
     )
   end
+
+  it 'routes DELETE /tunes/:id to the tunes#destroy action' do
+    expect(delete('/tunes/1')).to route_to(
+      controller: 'tunes',
+      action: 'destroy',
+      id: '1'
+    )
+  end
 end

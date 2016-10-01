@@ -8,6 +8,10 @@ RSpec.describe TunesController do
     }
   end
 
+  after(:each) do
+    Tune.delete_all
+  end
+
   describe 'POST create' do
     before(:each) do
       post :create, { tune_data: tune_params }, format: :json
@@ -53,6 +57,20 @@ RSpec.describe TunesController do
     end
   end
 
+  describe 'DELETE destroy' do
+    before(:each) do
+      delete :destroy, id: 1, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_successful
+    end
+
+    it 'renders no response body' do
+      expect(response.body).to be_empty
+    end
+  end
+
   describe 'PATCH update' do
     def tune_params
       {
@@ -63,7 +81,7 @@ RSpec.describe TunesController do
 
     before(:each) do
       patch :update, {
-        id: @tune_id,
+        id: 1,
         tune_data: tune_params
       }, format: :json
     end

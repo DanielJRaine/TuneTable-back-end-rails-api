@@ -28,6 +28,10 @@ RSpec.describe 'Tune API' do
     Tune.delete_all
   end
 
+  after(:each) do
+    Tune.delete_all
+  end
+
   before(:all) do
     post '/tunes', tune_data: tune_params
   end
@@ -87,6 +91,14 @@ RSpec.describe 'Tune API' do
         update_tune_data: update_tune_params
       }
 
+      expect(response).to be_success
+      expect(response.body).to be_empty
+    end
+  end
+
+  describe 'DELETE /tunes/:id' do
+    it 'destroys a specific tune' do
+      delete "/tunes/#{@tune_id}"
       expect(response).to be_success
       expect(response.body).to be_empty
     end
