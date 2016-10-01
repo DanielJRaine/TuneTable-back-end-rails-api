@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :tunes, except: [:new, :edit]
+  resources :tunes
+  get '/tune' => 'tunes#search'
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'

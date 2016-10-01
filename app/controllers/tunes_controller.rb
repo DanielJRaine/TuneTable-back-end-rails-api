@@ -15,6 +15,11 @@ class TunesController < ApplicationController
     render json: @tune
   end
 
+  def search
+    @tune = Tune.find_by search_params
+
+    render json: @tune
+  end
   # POST /tunes
   # POST /tunes.json
   def create
@@ -56,5 +61,9 @@ class TunesController < ApplicationController
 
   def tune_params
     params.require(:tune_data).permit(:name, :ABCnotation)
+  end
+
+  def search_params
+    params.require(:tune_data).permit(:name)
   end
 end
