@@ -28,9 +28,12 @@ ActiveRecord::Schema.define(version: 20160929200204) do
   create_table "tunes", force: :cascade do |t|
     t.string   "name"
     t.string   "ABCnotation"
+    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "tunes", ["user_id"], name: "index_tunes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -44,4 +47,5 @@ ActiveRecord::Schema.define(version: 20160929200204) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
+  add_foreign_key "tunes", "users"
 end
