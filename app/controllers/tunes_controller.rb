@@ -1,6 +1,7 @@
-class TunesController < ApplicationController
-  before_action :set_tune, only: [:show, :update, :destroy]
+class TunesController < ProtectedController
+  before_action :set_tune, only: [:show, :update, :destroy] # used when TunesController was inheriting from ApplicationController. Unsure if should use for ProtectedController
 
+  
   # GET /tunes
   # GET /tunes.json
   def index
