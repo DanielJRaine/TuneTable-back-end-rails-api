@@ -24,7 +24,8 @@ class TunesController < ProtectedController
   # POST /tunes
   # POST /tunes.json
   def create
-    @tune = Tune.new(tune_params)
+    # @tune = Tune.new(tune_params) #before implementing current_user
+    @tune = current_user.tunes.build(tune_params)
 
     if @tune.save
       render json: @tune, status: :created, location: @tune
@@ -54,10 +55,11 @@ class TunesController < ProtectedController
     head :no_content
   end
 
-  private
+  # private # this was here before implementing current_user
 
   def set_tune
-    @tune = Tune.find(params[:id])
+    # @tune = Tune.find(params[:id]) # before implementing current_user
+    @tune = current_user.tunes.find(params[:id])
   end
 
   def tune_params
@@ -67,4 +69,6 @@ class TunesController < ProtectedController
   def search_params
     params.require(:tune_data).permit(:name)
   end
+  
+  private :set_tune, :tune_params
 end
