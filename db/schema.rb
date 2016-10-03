@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003143320) do
+ActiveRecord::Schema.define(version: 20161003230200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,24 @@ ActiveRecord::Schema.define(version: 20161003143320) do
   add_index "setlists", ["user_id"], name: "index_setlists_on_user_id", using: :btree
 
   create_table "tunes", force: :cascade do |t|
-    t.string   "name"
     t.string   "ABCnotation"
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "tuneTitleT"
+    t.string   "composerC"
+    t.string   "originO"
+    t.string   "areaA"
+    t.string   "meterM"
+    t.string   "unitNoteLengthL"
+    t.string   "tempoQ"
+    t.string   "partsP"
+    t.string   "transcriptionZ"
+    t.string   "notesN"
+    t.string   "groupG"
+    t.string   "historyH"
+    t.string   "keyK"
+    t.string   "rhythmR"
   end
 
   add_index "tunes", ["user_id"], name: "index_tunes_on_user_id", using: :btree

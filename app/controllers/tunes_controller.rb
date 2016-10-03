@@ -52,8 +52,8 @@ class TunesController < ProtectedController
   # DELETE /tunes/1
   # DELETE /tunes/1.json
   def destroy
+    @tune = Tune.find_by search_params
     @tune.destroy
-
     head :no_content
   end
 
@@ -65,12 +65,12 @@ class TunesController < ProtectedController
   end
 
   def tune_params
-    params.require(:tune_data).permit(:name, :ABCnotation, :user_id)
+    params.require(:tune_data).permit(:ABCnotation, :user_id, :tuneTitleT, :composerC, :originO, :areaA, :meterM, :unitNoteLengthL, :tempoQ, :partsP, :transcriptionZ, :notesN, :groupG, :historyH, :keyK, :rhythmR)
     # previously: params.require(:tune_data).permit(:name, :ABCnotation)
   end
 
   def search_params
-    params.require(:tune_data).permit(:name)
+    params.require(:tune_data).permit(:tuneTitleT)
   end
   
   private :set_tune, :tune_params

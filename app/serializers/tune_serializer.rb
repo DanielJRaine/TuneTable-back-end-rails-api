@@ -1,5 +1,5 @@
 class TuneSerializer < ActiveModel::Serializer
-  attributes :id, :name, :ABCnotation, :editable
+  attributes :id, :ABCnotation, :tuneTitleT, :editable
   
   def editable
     scope == object.user
