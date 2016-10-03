@@ -26,8 +26,9 @@ class TunesController < ProtectedController
   # POST /tunes.json
   def create
     # @tune = Tune.new(tune_params) #before implementing current_user
+    # @tune.user = current_user
     @tune = current_user.tunes.build(tune_params)
-
+    
     if @tune.save
       render json: @tune, status: :created, location: @tune
     else
@@ -64,7 +65,8 @@ class TunesController < ProtectedController
   end
 
   def tune_params
-    params.require(:tune_data).permit(:name, :ABCnotation)
+    params.require(:tune_data).permit(:name, :ABCnotation, :user_id)
+    # previously: params.require(:tune_data).permit(:name, :ABCnotation)
   end
 
   def search_params
