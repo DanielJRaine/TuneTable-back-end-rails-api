@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :setlists, except: [:new, :edit]
   resources :tunes
   get '/tune' => 'tunes#search'
   resources :examples, except: [:new, :edit]
