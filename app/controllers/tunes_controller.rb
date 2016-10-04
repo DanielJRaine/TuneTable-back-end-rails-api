@@ -17,7 +17,7 @@ class TunesController < ProtectedController
   end
 
   def search
-    @tune = Tune.find_by search_params
+    @tune = Tune.find_by tune_params
 
     render json: @tune
   end
@@ -69,9 +69,9 @@ class TunesController < ProtectedController
     # previously: params.require(:tune_data).permit(:name, :ABCnotation)
   end
 
-  def search_params
-    params.require(:tune_data).permit(:tuneTitleT)
-  end
+  # def search_params
+  #   params.require(:tune_data).permit(:tuneTitleT)
+  # end
   
   private :set_tune, :tune_params
 end
