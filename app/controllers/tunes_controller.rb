@@ -52,6 +52,7 @@ class TunesController < ProtectedController
   # DELETE /tunes/1
   # DELETE /tunes/1.json
   def destroy
+    logger.info "logging destroy action"
     @tune.destroy
     head :no_content
   end
