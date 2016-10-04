@@ -41,7 +41,7 @@ module TuneTableRailsAPI
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'http://localhost:8080'
+        origins ENV['CLIENT_ORIGIN'] || 'https://danieljraine.github.io/TuneTable-front-end'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
