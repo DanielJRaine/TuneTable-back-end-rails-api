@@ -52,7 +52,6 @@ class TunesController < ProtectedController
   # DELETE /tunes/1
   # DELETE /tunes/1.json
   def destroy
-    @tune = Tune.find_by search_params
     @tune.destroy
     head :no_content
   end
